@@ -1,11 +1,11 @@
 from discord.ext import commands
-from typing import Any
 
 import os
 
 ACCEPT_FORMATS = ("audio", "mp3", "mp4", "video")
-FILE_SIZE_LIMIT = 8e6 # Discord file size limit (8MB)
+FILE_SIZE_LIMIT = 8e6  # Discord file size limit (8MB)
 VALID_URLS = ("youtu.be", "youtube.com")
+
 
 class Bot(commands.Bot):
     def __init__(self, command_prefix):

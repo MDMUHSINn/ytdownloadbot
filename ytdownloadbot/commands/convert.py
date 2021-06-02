@@ -6,10 +6,13 @@ from discord import File
 from discord.ext import commands
 from ytdownloadbot import FILE_SIZE_LIMIT
 
-import asyncio, os
+import asyncio
+import os
 
-help = ("A valid video link from YouTube and a media format must be specified. Example: "
-        "`.convert https://youtu.be/video_id audio`. Use `.formats` to see the list of accepted formats")
+help = ("A valid video link from YouTube and a media format must be specified."
+        "Example: `.convert https://youtu.be/video_id audio`. Use `.formats`"
+        "to see the list of accepted formats")
+
 
 class Convert(commands.Cog):
     """
@@ -33,7 +36,9 @@ class Convert(commands.Cog):
             try:
                 downloader.start()
             except StreamNotFound:
-                await ctx.send(f"Unfortunately no media with format `{format}` was found to download from this video")
+                await ctx.send(
+                    f"Unfortunately no media with format `{format}`"
+                    "was found to download from this video")
             else:
                 while not downloader.finished:
                     await asyncio.sleep(0.5)
@@ -43,20 +48,30 @@ class Convert(commands.Cog):
                     with open(self.final_path, "rb") as f:
                         await ctx.send(file=File(f))
                 else:
-                    await ctx.send("File size exceeds Discord file size limit."
-                                    "There will be a download link provider soon")
+                    await ctx.send(
+                        "File size exceeds Discord file size limit."
+                        "There will be a download link provider soon")
 
     @convert.error
     async def convert_error(self, ctx, error):
-        if isinstance(error, (commands.BadArgument, commands.MissingRequiredArgument)):
+        if isinstance(error, (
+                commands.BadArgument,
+                commands.MissingRequiredArgument
+            )
+        ):
             await ctx.send(help)
         elif isinstance(error, commands.CommandOnCooldown):
-            await ctx.send(f"Command is on cooldown. Try again in `{error.retry_after:.2f} seconds`")
+            await ctx.send(
+                "Command is on cooldown. Try again in "
+                f"`{error.retry_after:.2f} seconds`")
         elif isinstance(error, commands.ConversionError):
             if isinstance(error.original, NotAcceptedFormat):
-                await ctx.send(f"{error.original}. Use `.formats` to see the list of accepted formats")
+                await ctx.send(
+                    f"{error.original}. Use `.formats` to see the "
+                    "list of accepted formats")
             else:
                 await ctx.send(error.original)
+
 
 def setup(bot):
     bot.add_cog(Convert(bot))

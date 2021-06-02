@@ -4,9 +4,13 @@ from moviepy.audio.io.AudioFileClip import AudioFileClip
 from typing import Any, BinaryIO, Optional
 from pytube import Stream, YouTube
 
+
 class Downloader(YouTube):
     def __init__(self, url: str, format: str):
-        super().__init__(url, on_complete_callback=lambda *args: self.complete_callback(*args))
+        super().__init__(
+            url,
+            on_complete_callback=lambda *args: self.complete_callback(*args)
+        )
 
         self._stream: Stream = None
 
@@ -27,7 +31,7 @@ class Downloader(YouTube):
     def complete_callback(self, stream: Any, file_path: str):
         self.output = file_path
         self._stream = stream
-        
+
         if stream.includes_audio_track and not stream.includes_video_track:
             output = f"{file_path[:-4]}.mp3"
             with AudioFileClip(file_path) as sound:
@@ -44,7 +48,7 @@ class Downloader(YouTube):
             return self.streams.get_highest_resolution()
         elif format in ("mp3", "mp4"):
             query = self.streams.filter(file_extension=format)
-            
+
             if format == "mp3":
                 stream = query.get_audio_only()
             else:
