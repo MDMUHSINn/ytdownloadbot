@@ -29,6 +29,7 @@ python bot.py
 - This bot only have the basic functionalities as it's not fully complete
 - This bot sends the fetched media as attached files. That said, keep in mind that discord's file size limit is >8MB and it's not possible to be bypassed. The recommended option to fix that is by using a server to host files and providing their links to download instead of attaching them directly to discord
 - Currently the only accepted media formats are `mp3` and `mp4`. You can change it by yourself once you're aware of this bot backend operations and <a href="https://pytube.io/en/latest/">pytube documentation</a> as well
+- There's no download/connection error handling. Only basic errors are handled
 ---
 # Requirements (Python)<a name="requirements"></a>
 ```
