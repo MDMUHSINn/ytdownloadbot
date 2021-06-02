@@ -8,22 +8,22 @@ A simple <a href="https://github.com/Rapptz/discord.py">discord.py</a> bot that 
 - [Requirements](#requirements)
 
 # How to setup <a name="setup"></a>
-### Install the [required modules](#requirements) with pip:
+#### Install the [required modules](#requirements) with pip:
 ```
 python -m pip install -r requirements.txt
 ```
 ---
-### Create a `.env` file and enter your discord token using `TOKEN` variable:
+#### Create a `.env` file and enter your discord token using `TOKEN` variable:
 ```
 TOKEN=YOUR_DISCORD_TOKEN
 ```
-#### You can clone the repository and replace the file `.env.example` to `.env` to make things easier
+##### You can clone the repository and replace the file `.env.example` to `.env` to make things easier
 ---
-### Run the main file
+#### Run the main file
 ```
 python bot.py
 ```
-### Once it's online, use `.help` to see the list of commands (either through a private or a guild channel message)
+##### Once it's online, use `.help` to see the list of commands (either through a private or a guild channel message)
 ---
 # Limitations <a name="limit"></a>
 - This bot only have the basic functionalities as it's not fully complete
@@ -37,4 +37,4 @@ discord.py
 moviepy
 pytube
 ```
-#### All required modules are listed in `requirements.txt`
+##### All required modules are listed in `requirements.txt`
