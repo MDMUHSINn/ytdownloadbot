@@ -36,6 +36,7 @@ python bot.py
 asyncio
 discord.py
 moviepy
+python-dotenv
 pytube
 ```
 ##### All required modules are listed in `requirements.txt`
