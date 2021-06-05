@@ -8,7 +8,7 @@ A simple <a href="https://github.com/Rapptz/discord.py">discord.py</a> bot that 
 - [Requirements](#requirements)
 
 # How to setup <a name="setup"></a>
-#### Install the [required modules](#requirements) with pip:
+#### Install the [required packages](#requirements) with pip:
 ```
 python -m pip install -r requirements.txt
 ```
@@ -17,7 +17,7 @@ python -m pip install -r requirements.txt
 ```
 TOKEN=YOUR_DISCORD_TOKEN
 ```
-##### You can clone the repository and replace the file `.env.example` to `.env` to make things easier
+##### You can clone the repository and change file `.env.example` to `.env` to make things easier
 ---
 #### Run the main file
 ```
